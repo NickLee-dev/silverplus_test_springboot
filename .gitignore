@@ -1,0 +1,116 @@
+# Java 관련
+*.class
+*.jar
+*.war
+*.ear
+
+# IDEA 관련
+/.idea/
+.idea
+/*.iml
+*.iml
+*.iws
+*.ipr
+*.idea/modules.xml
+*.idea/*.iml
+*.idea/workspace.xml
+/out/
+out/
+/target/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# Gradle 관련
+.gradle
+.gradle/
+/build/
+build/
+/!gradle-wrapper.jar
+.gradle-build/
+gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# 로그 및 기타 설정 파일
+*.log
+*.pid
+*.seed
+*.lock
+
+# 운영 체제에서 생성되는 파일
+.DS_Store
+Thumbs.db
+
+# 기타 IDE 파일
+*.swp
+*.swo
+*.bak
+*~.nib
+*.crdownload
+*.sync-conflict-*
+
+# 환경 설정 파일
+.env
+*.env
+*.properties
+
+# IntelliJ가 생성한 자동 설정 파일 무시
+.idea/libraries/
+.idea/modules/
+.idea/shelf/
+
+# Maven과 관련된 캐시
+.mvn/
+.settings/
+.settings
+.repository/
+
+# 테스트 관련
+/test-output/
+
+# Mac 관련
+.AppleDouble
+.LSOverride
+
+# Windows 관련
+Desktop.ini
+
+# Linux 관련
+.Trash-*
+.nfs*
+
+# CI/CD 툴 관련
+*.coverage
+*.lcov
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# 추가: 필요 시 특정 파일이나 폴더를 제외하거나 포함하는 규칙 추가
+
+
+
+
+
+
+
