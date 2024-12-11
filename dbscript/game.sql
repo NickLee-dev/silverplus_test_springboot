@@ -9,110 +9,110 @@ DROP TABLE score_log CASCADE CONSTRAINTS;
 
 
 
--- Ä«µå Å×ÀÌºí
+-- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ä«ï¿½ï¿½
 CREATE TABLE card (
     id NUMBER PRIMARY KEY,
-    month NUMBER(2) NOT NULL, -- Ä«µåÀÇ ¿ù (1 ~ 12)
-    type VARCHAR2(10) NOT NULL, -- Ä«µå Å¸ÀÔ (±¤, ¶ì, ÇÇ, ½ÖÇÇ µî)
-    point NUMBER(5, 2) DEFAULT 0, -- Ä«µå Á¡¼ö
-    is_special CHAR(1) DEFAULT 'N' CHECK (is_special IN ('Y', 'N')) -- Æ¯¼ö Ä«µå ¿©ºÎ
+    month NUMBER(2) NOT NULL, -- Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ (1 ~ 12)
+    type VARCHAR2(10) NOT NULL, -- Ä«ï¿½ï¿½ Å¸ï¿½ï¿½ (ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+    point NUMBER(5, 2) DEFAULT 0, -- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    is_special CHAR(1) DEFAULT 'N' CHECK (is_special IN ('Y', 'N')) -- Æ¯ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 );
 
-comment on column card.id is 'Ä«µå°íÀ¯ID';
-comment on column card.month is 'Ä«µåÀÇ ¿ù';
-comment on column card.type is 'Ä«µå Å¸ÀÔ';
-comment on column card.point is 'Ä«µå Á¡¼ö';
-comment on column card.is_special is 'Æ¯¼öÄ«µå¿©ºÎ';
+comment on column card.id is 'Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ID';
+comment on column card.month is 'Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½';
+comment on column card.type is 'Ä«ï¿½ï¿½ Å¸ï¿½ï¿½';
+comment on column card.point is 'Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½';
+comment on column card.is_special is 'Æ¯ï¿½ï¿½Ä«ï¿½å¿©ï¿½ï¿½';
 
 
--- »ç¿ëÀÚ Å×ÀÌºí
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½  // ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE player (
     id NUMBER PRIMARY KEY,
-    name VARCHAR2(50) NOT NULL, -- ÇÃ·¹ÀÌ¾î ÀÌ¸§
-    score NUMBER DEFAULT 0, -- ÇÃ·¹ÀÌ¾î Á¡¼ö
-    is_turn CHAR(1) DEFAULT 'N' CHECK (is_turn IN ('Y', 'N')) -- ÇöÀç ÅÏ ¿©ºÎ
+    name VARCHAR2(50) NOT NULL, -- ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ì¸ï¿½
+    score NUMBER DEFAULT 0, -- ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+    is_turn CHAR(1) DEFAULT 'N' CHECK (is_turn IN ('Y', 'N')) -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 );
 
-comment on column player.id is '»ç¿ëÀÚ°íÀ¯ID';
-comment on column player.name is '»ç¿ëÀÚÀÌ¸§';
-comment on column player.score is '»ç¿ëÀÚÁ¡¼ö';
-comment on column player.is_turn is 'ÇöÀç ÅÏ ¿©ºÎ';
+comment on column player.id is 'ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ï¿½ï¿½ID';
+comment on column player.name is 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½';
+comment on column player.score is 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+comment on column player.is_turn is 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½';
 
 
--- »ç¿ëÀÚ Ä«µå Å×ÀÌºí
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½  // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE player_cards (
     id NUMBER PRIMARY KEY,
-    player_id NUMBER NOT NULL, -- ÇÃ·¹ÀÌ¾î ID
-    card_id NUMBER NOT NULL, -- Ä«µå ID
-    type VARCHAR2(10) NOT NULL, -- Ä«µå À¯Çü ('HAND' or 'COLLECTED')
+    player_id NUMBER NOT NULL, -- ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ID
+    card_id NUMBER NOT NULL, -- Ä«ï¿½ï¿½ ID
+    type VARCHAR2(10) NOT NULL, -- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ('HAND' or 'COLLECTED')
     CONSTRAINT fk_player FOREIGN KEY (player_id) REFERENCES player(id),
     CONSTRAINT fk_card FOREIGN KEY (card_id) REFERENCES card(id)
 );
 
-comment on column player_cards.id is '»ç¿ëÀÚ Ä«µå °íÀ¯ ID';
-comment on column player_cards.player_id is '»ç¿ëÀÚ °íÀ¯ ID';
-comment on column player_cards.card_id is 'Ä«µå °íÀ¯ ID';
-comment on column player_cards.type is 'Ä«µå À¯Çü';
+comment on column player_cards.id is 'ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column player_cards.player_id is 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column player_cards.card_id is 'Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column player_cards.type is 'Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½';
 
 
--- °ÔÀÓ ÁøÇà»óÅÂ Å×ÀÌºí
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
 CREATE TABLE game_state (
     id NUMBER PRIMARY KEY,
-    turn_order NUMBER(1) DEFAULT 1, -- ÇöÀç ÅÏ ¼ø¼­ (1: »ç¿ëÀÚ, 2: AI)
-    is_finished CHAR(1) DEFAULT 'N' CHECK (is_finished IN ('Y', 'N')) -- °ÔÀÓ Á¾·á ¿©ºÎ
+    turn_order NUMBER(1) DEFAULT 1, -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (1: ï¿½ï¿½ï¿½ï¿½ï¿½, 2: AI)
+    is_finished CHAR(1) DEFAULT 'N' CHECK (is_finished IN ('Y', 'N')) -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 );
 
-comment on column game_state.id is '°ÔÀÓ ÁøÇà»óÅÂ °íÀ¯ ID';
-comment on column game_state.turn_order is 'ÇöÀç ÅÏ ¼ø¼­';
-comment on column game_state.is_finished is '°ÔÀÓ Á¾·á ¿©ºÎ';
+comment on column game_state.id is 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column game_state.turn_order is 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½';
+comment on column game_state.is_finished is 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½';
 
 
--- ÀåÆÇ Ä«µå Å×ÀÌºí
+-- ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½  // ï¿½ï¿½ï¿½ï¿½ ï¿½Êµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½
 CREATE TABLE field_cards (
     id NUMBER PRIMARY KEY,
-    game_id NUMBER NOT NULL, -- °ÔÀÓ ID
-    card_id NUMBER NOT NULL, -- Ä«µå ID
+    game_id NUMBER NOT NULL, -- ï¿½ï¿½ï¿½ï¿½ ID
+    card_id NUMBER NOT NULL, -- Ä«ï¿½ï¿½ ID
     CONSTRAINT fk_game FOREIGN KEY (game_id) REFERENCES game_state(id),
     CONSTRAINT fk_card_field FOREIGN KEY (card_id) REFERENCES card(id)
 );
 
-comment on column field_cards.id is 'ÀåÆÇ Ä«µå °íÀ¯ ID';
-comment on column field_cards.game_id is '°ÔÀÓ ID';
-comment on column field_cards.card_id is 'Ä«µå ID';
+comment on column field_cards.id is 'ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column field_cards.game_id is 'ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column field_cards.card_id is 'Ä«ï¿½ï¿½ ID';
 
 
--- µ¦ Ä«µå Å×ÀÌºí
+-- ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 CREATE TABLE deck_cards (
     id NUMBER PRIMARY KEY,
-    game_id NUMBER NOT NULL, -- °ÔÀÓ ID
-    card_id NUMBER NOT NULL, -- Ä«µå ID
+    game_id NUMBER NOT NULL, -- ï¿½ï¿½ï¿½ï¿½ ID
+    card_id NUMBER NOT NULL, -- Ä«ï¿½ï¿½ ID
     CONSTRAINT fk_game_deck FOREIGN KEY (game_id) REFERENCES game_state(id),
     CONSTRAINT fk_card_deck FOREIGN KEY (card_id) REFERENCES card(id)
 );
 
-comment on column deck_cards.id is 'µ¦ Ä«µå °íÀ¯ ID';
-comment on column deck_cards.game_id is '°ÔÀÓ ID';
-comment on column deck_cards.card_id is 'Ä«µå ID';
+comment on column deck_cards.id is 'ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column deck_cards.game_id is 'ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column deck_cards.card_id is 'Ä«ï¿½ï¿½ ID';
 
 
--- Á¡¼ö±â·Ï Å×ÀÌºí
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½Ó³ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½àµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½
 CREATE TABLE score_log (
     id NUMBER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
-    game_id NUMBER NOT NULL, -- °ÔÀÓ ID
-    player_id NUMBER NOT NULL, -- ÇÃ·¹ÀÌ¾î ID
-    action VARCHAR2(50) NOT NULL, -- Çàµ¿ ('Ä«µå ³½´Ù', 'Á¡¼ö Ãß°¡' µî)
-    score_change NUMBER DEFAULT 0, -- Á¡¼ö º¯È­·®
-    log_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- ·Î±× ½Ã°£
+    game_id NUMBER NOT NULL, -- ï¿½ï¿½ï¿½ï¿½ ID
+    player_id NUMBER NOT NULL, -- ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ID
+    action VARCHAR2(50) NOT NULL, -- ï¿½àµ¿ ('Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½' ï¿½ï¿½)
+    score_change NUMBER DEFAULT 0, -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½
+    log_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- ï¿½Î±ï¿½ ï¿½Ã°ï¿½
     CONSTRAINT fk_game_log FOREIGN KEY (game_id) REFERENCES game_state(id),
     CONSTRAINT fk_player_log FOREIGN KEY (player_id) REFERENCES player(id)
 );
 
-comment on column score_log.id is 'Á¡¼ö ±â·Ï °íÀ¯ ID';
-comment on column score_log.game_id is '°ÔÀÓ °íÀ¯ ID';
-comment on column score_log.player_id is '»ç¿ëÀÚ °íÀ¯ ID';
-comment on column score_log.action is 'Çàµ¿';
-comment on column score_log.score_change is 'Á¡¼ö º¯È­·®';
-comment on column score_log.log_time is '·Î±× ½Ã°£';
+comment on column score_log.id is 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column score_log.game_id is 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column score_log.player_id is 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID';
+comment on column score_log.action is 'ï¿½àµ¿';
+comment on column score_log.score_change is 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½';
+comment on column score_log.log_time is 'ï¿½Î±ï¿½ ï¿½Ã°ï¿½';
 
 
 
