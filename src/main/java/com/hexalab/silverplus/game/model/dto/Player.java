@@ -1,4 +1,4 @@
 package com.hexalab.silverplus.game.model.dto;
 
-public class Card {
+public class Player {
 }
